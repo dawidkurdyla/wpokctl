@@ -1,10 +1,11 @@
 {
   "name": "wpokctl",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "wpokctl": "./bin/wpokctl.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/wpokctl.js",
     "dev": "node --enable-source-maps ./bin/wpokctl.js"
   },
@@ -19,9 +20,8 @@
     "url": "https://github.com/dawidkurdyla/wpokctl/issues"
   },
   "homepage": "https://github.com/dawidkurdyla/wpokctl#readme",
-  "type": "module",
   "dependencies": {
-    "@wpok/client-lib": "^0.1.0",
+    "@wpok/client-lib": "file:../wpok-client-lib",
     "commander": "^12.1.0",
     "dotenv": "^16.5.0",
     "js-yaml": "^4.1.0"
