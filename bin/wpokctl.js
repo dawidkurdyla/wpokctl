@@ -6,7 +6,7 @@
 import 'dotenv/config';
 import { Command } from 'commander';
 import tasks from '../src/commands/tasks.js';
-// import works from '../src/commands/works-watch.js';
+import work from '../src/commands/work.js';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +28,6 @@ program
   .enablePositionalOptions();
 
 program.addCommand(tasks);
-// program.addCommand(works);
+program.addCommand(work);
 
 program.parseAsync(process.argv);

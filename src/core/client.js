@@ -20,6 +20,7 @@ export const {
   parseS3Url,
   generateWorkId,
   generateTaskId,
+  extractWorkId,
   validateManifest,
   assertValidManifest
 } = lib;
