@@ -49,13 +49,13 @@ const createCmd = new Command('create')
         return;
       }
 
-      const taskIds = await createBatch(client, manifest);
-      console.log(`Created ${taskIds.length} tasks.`);
+      const result = await createBatch(client, manifest);
+      console.log(`Created ${result.tasks.length} tasks.`);
       if (!opts.wait) return;
 
-      const res = await waitForMany(client, taskIds, { timeoutSec, failFast: opts.failFast });
+      const res = await waitForMany(client, result.tasks, { timeoutSec, failFast: opts.failFast });
       const failed = res.done.filter(x => x.code !== 0);
-      console.log(`Done: ${res.done.length}/${taskIds.length}`);
+      console.log(`Done: ${res.done.length}/${result.tasks.length}`);
       if (failed.length) {
         console.log(`Failed: ${failed.length}`);
         process.exitCode = 2;
